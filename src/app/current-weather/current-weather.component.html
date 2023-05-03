@@ -1,0 +1,18 @@
+<div style="text-align:center">
+  <h1>
+    LocalCast Weather
+  </h1>
+  <div>Your city, your forecast, right now!</div>
+  <h2>Current Weather</h2>
+  <div *ngIf="current;else noData">
+    <span>{{current?.country}} | {{current?.city}}</span><br>
+    <span>{{current?.date | date:'fullDate'}} </span><br>
+    <div>
+      <div *ngIf="current.image"><img ngSrc='{{current?.image}}' width="50" height="50"></div>
+      <span>{{current?.temperature | number:'1.0-0'}}˚C</span>
+    </div>
+    <p>{{current?.description}}</p>
+
+  </div>
+  <ng-template #noData>No Data</ng-template>
+</div>
